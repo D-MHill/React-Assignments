@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 
-
-const  ColourSelect = ({colours}) {
+const  ColourSelect = () => {
     const colours = ["Blue", "Pink", "Purple", "Yellow", "Orange"];    
     const [colourSelector, setColourSelector] = useState("");
-    const handlecoloursLength = () => {
-        setColourSelector(colours.length);
+    const handleColourChange = (colours) => {
+        setColourSelector(colours);
       };
     return (
-        <div>
+        <div style={{backgroundColor:colourSelector}}>
+        {colours.map(c => (
+            <button
+                        key={c}
+                        style={{ backgroundColor: c }}
+                        onClick={() => handleColourChange(c)}
+                    >
+                        {c}
+                    </button>
+        ))}
             <h3>Chosse your background colour:</h3>
-            <button onClick={Style={backgroundColor: "blue"}}>Blue</button>
-            <button onClick={Style={backgroundColor: "Pink"}}>Pink</button>
-            <button onClick={Style={backgroundColor: "Purple"}}>Purple</button>
-            <button onClick={Style={backgroundColor: "Yellow"}}>Yellow</button>
-            <button onClick={Style={backgroundColor: "Orange"}}>Orange</button>            
+            
         </div>);
     }
 
